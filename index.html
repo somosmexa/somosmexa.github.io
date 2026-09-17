@@ -12,7 +12,7 @@
 <style>
 
 /* ==================================================
-   CONFIGURACIÓN GENERAL
+   GENERAL
 ================================================== */
 
 * {
@@ -91,8 +91,6 @@ nav {
 
     display: flex;
 
-    align-items: center;
-
     justify-content: center;
 
     background-image: url("imagenes/fondo-lobo.png");
@@ -106,7 +104,7 @@ nav {
 
 
 /* ==================================================
-   OSCURECIMIENTO DE LA IMAGEN
+   OSCURECIMIENTO
 ================================================== */
 
 .hero-overlay {
@@ -118,8 +116,8 @@ nav {
     background:
         linear-gradient(
             to bottom,
-            rgba(0,0,0,0.20),
-            rgba(0,0,0,0.03) 42%,
+            rgba(0,0,0,0.18),
+            rgba(0,0,0,0.02) 45%,
             rgba(0,0,0,0.35)
         );
 
@@ -128,7 +126,7 @@ nav {
 
 
 /* ==================================================
-   CONTENIDO DE LA PORTADA
+   CONTENIDO
 ================================================== */
 
 .hero-content {
@@ -149,12 +147,12 @@ nav {
 
     align-items: center;
 
-    padding: 45px 20px 0;
+    padding: 38px 20px 30px;
 }
 
 
 /* ==================================================
-   LOGOTIPO
+   100% MEXA
 ================================================== */
 
 .hero h1 {
@@ -181,22 +179,19 @@ nav {
     white-space: nowrap;
 
     text-shadow:
-
         0 3px 0 rgba(0,0,0,0.9),
-
         0 7px 20px rgba(0,0,0,0.8),
-
         0 0 35px rgba(0,0,0,0.5);
+
+    margin: 0;
 }
 
 
 /* ==================================================
-   ZONA DEL BOTÓN
+   BOTÓN
 ================================================== */
 
 .hero-bottom {
-
-    width: 100%;
 
     display: flex;
 
@@ -204,12 +199,13 @@ nav {
 
     align-items: center;
 
+    width: 100%;
+
     /*
-       El botón se coloca debajo
-       de la zona del lobo
+       MUCHO MÁS CERCA DEL LOBO
     */
 
-    margin-top: 35vh;
+    margin-top: 14vh;
 }
 
 
@@ -495,7 +491,7 @@ footer {
 
 
 /* ==================================================
-   ANDROID / CELULAR
+   ANDROID
 ================================================== */
 
 @media (max-width: 600px) {
@@ -553,24 +549,19 @@ footer {
 
         min-height: calc(100vh - 62px);
 
-        padding:
+        padding: 25px 15px 20px;
 
-            28px
-
-            15px
-
-            0;
+        align-items: center;
     }
 
 
     /* ----------------------------
-       100% MEXA
+       MARCA
     ---------------------------- */
 
     .hero h1 {
 
         font-size:
-
             clamp(
                 43px,
                 13vw,
@@ -584,12 +575,12 @@ footer {
 
 
     /* ----------------------------
-       BOTÓN
+       BOTÓN MÁS ARRIBA
     ---------------------------- */
 
     .hero-bottom {
 
-        margin-top: 28vh;
+        margin-top: 12vh;
     }
 
 
@@ -603,7 +594,6 @@ footer {
 
         letter-spacing: 2px;
     }
-
 
     .hero-collection span {
 
@@ -650,11 +640,10 @@ footer {
 
 
 /* ==================================================
-   CELULARES MUY PEQUEÑOS
+   CELULARES PEQUEÑOS
 ================================================== */
 
 @media (max-width: 380px) {
-
 
     .nav-links a {
 
@@ -663,12 +652,12 @@ footer {
         margin-left: 16px;
     }
 
-
     .hero-content {
 
-        padding-top: 25px;
-    }
+        padding-top: 22px;
 
+        padding-bottom: 15px;
+    }
 
     .hero h1 {
 
@@ -677,12 +666,10 @@ footer {
         letter-spacing: 3px;
     }
 
-
     .hero-bottom {
 
-        margin-top: 25vh;
+        margin-top: 9vh;
     }
-
 
     .hero-collection {
 
@@ -735,14 +722,14 @@ footer {
     <div class="hero-content">
 
 
-        <!-- MARCA ARRIBA DEL LOBO -->
+        <!-- MARCA ARRIBA -->
 
         <h1>
             100% MEXA
         </h1>
 
 
-        <!-- BOTÓN DEBAJO DEL LOBO -->
+        <!-- BOTÓN -->
 
         <div class="hero-bottom">
 
@@ -872,7 +859,7 @@ footer {
 
             <img
                 src="imagenes/20260916_161930.jpg"
-                alt="Gorra White Sox Amarilla"
+                alt="Gorra White Sox Amarilla Mostaza"
             >
 
             <h3>
@@ -1040,7 +1027,7 @@ footer {
 
             <img
                 src="imagenes/20260916_162239.jpg"
-                alt="Gorra Air Jordan Crema con Rojo"
+                alt="Gorra Air Jordan Crema"
             >
 
             <h3>
@@ -1134,7 +1121,6 @@ footer {
         Nosotros
     </h2>
 
-
     <div class="about">
 
         <p>
@@ -1153,11 +1139,9 @@ footer {
         <br>
 
         <p>
-
             <strong>
                 Orgullo que se porta.
             </strong>
-
         </p>
 
     </div>
