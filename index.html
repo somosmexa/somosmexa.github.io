@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>100% MEXA | Orgullo que se porta</title>
@@ -12,7 +10,7 @@
 <style>
 
 /* =========================
-   CONFIGURACIÓN GENERAL
+   GENERAL
 ========================= */
 
 * {
@@ -26,9 +24,9 @@ html {
 }
 
 body {
-    background: #0a0a0a;
-    color: #f3eee5;
-    font-family: Georgia, "Times New Roman", serif;
+    background: #090909;
+    color: #f4efe6;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -37,82 +35,79 @@ body {
 ========================= */
 
 nav {
-    height: 82px;
+    height: 70px;
 
     background: #080808;
 
-    border-bottom: 1px solid #3a3023;
-
     display: flex;
-
     align-items: center;
-
     justify-content: flex-end;
 
-    padding: 0 28px;
+    padding: 0 30px;
+
+    border-bottom: 1px solid #332b20;
 
     position: relative;
-
-    z-index: 10;
+    z-index: 20;
 }
-
-
-/* ENLACES DE LA DERECHA */
 
 .nav-links {
     display: flex;
-
     align-items: center;
 }
 
 .nav-links a {
-    color: #f3eee5;
+    color: #f1ece3;
 
     text-decoration: none;
 
-    font-size: 18px;
+    margin-left: 30px;
 
-    margin-left: 28px;
+    font-size: 16px;
+
+    letter-spacing: 1px;
 
     transition: 0.3s;
 }
 
 .nav-links a:hover {
-    color: #c89b52;
+    color: #c59a55;
 }
 
 
 /* =========================
-   PORTADA / LOBO
+   PORTADA
 ========================= */
 
 .hero {
 
-    min-height: calc(100vh - 82px);
+    min-height: calc(100vh - 70px);
 
     position: relative;
 
     display: flex;
 
+    flex-direction: column;
+
     align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
 
     overflow: hidden;
 
     background-image: url("imagenes/fondo-lobo.png");
 
+    background-repeat: no-repeat;
+
     background-size: cover;
 
-    background-position: center center;
+    /*
+       El lobo queda en el centro
+    */
 
-    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 
-/* OSCURECER LIGERAMENTE LA IMAGEN */
+/* OSCURECIMIENTO SUAVE */
 
 .hero-overlay {
 
@@ -123,26 +118,30 @@ nav {
     background:
         linear-gradient(
             to bottom,
-            rgba(0,0,0,0.08),
-            rgba(0,0,0,0.15),
-            rgba(0,0,0,0.35)
+            rgba(0,0,0,0.18),
+            rgba(0,0,0,0.02) 45%,
+            rgba(0,0,0,0.40)
         );
 
     z-index: 1;
 }
 
 
-/* CONTENIDO CENTRAL */
+/* =========================
+   CONTENIDO DEL HERO
+========================= */
 
 .hero-content {
 
     position: relative;
 
-    z-index: 2;
+    z-index: 3;
 
     width: 100%;
 
-    max-width: 1100px;
+    height: 100%;
+
+    min-height: calc(100vh - 70px);
 
     display: flex;
 
@@ -150,47 +149,80 @@ nav {
 
     align-items: center;
 
-    justify-content: center;
+    justify-content: space-between;
 
-    padding: 20px;
+    padding:
 
-    /*
-       Lo subimos ligeramente
-       para dejar visible la cara del lobo
-    */
+        45px
 
-    transform: translateY(-30px);
+        20px
+
+        35px;
 }
 
 
 /* =========================
-   NOMBRE DE LA MARCA
+   LOGOTIPO 100% MEXA
 ========================= */
 
 .hero h1 {
 
-    font-size: clamp(52px, 10vw, 120px);
+    font-family:
+        "Bodoni 72",
+        "Didot",
+        "Bodoni MT",
+        "Times New Roman",
+        serif;
 
-    line-height: 0.95;
+    font-size: clamp(55px, 10vw, 115px);
 
-    letter-spacing: 2px;
+    font-weight: 900;
 
-    color: #f4eee3;
+    letter-spacing: 7px;
+
+    line-height: 0.9;
 
     text-align: center;
 
-    white-space: nowrap;
+    color: #f5eee2;
 
-    margin-bottom: 45px;
+    /*
+       Sombra para separarlo
+       del fondo
+    */
 
     text-shadow:
-        0 3px 8px rgba(0,0,0,0.95),
-        0 0 20px rgba(0,0,0,0.60);
+
+        0 3px 0 rgba(0,0,0,0.85),
+
+        0 7px 20px rgba(0,0,0,0.8),
+
+        0 0 35px rgba(0,0,0,0.45);
+
+    white-space: nowrap;
+
+    margin: 0;
 }
 
 
 /* =========================
-   BOTÓN COLECCIÓN
+   ZONA DEL BOTÓN
+========================= */
+
+.hero-bottom {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-end;
+}
+
+
+/* =========================
+   BOTÓN
 ========================= */
 
 .hero-collection {
@@ -205,65 +237,86 @@ nav {
 
     width: 245px;
 
-    min-height: 100px;
+    min-height: 82px;
 
     background: #c49a54;
 
-    color: #080808;
+    color: #090909;
 
     text-decoration: none;
 
     font-family: Arial, Helvetica, sans-serif;
 
-    font-weight: bold;
+    font-size: 15px;
 
-    font-size: 16px;
+    font-weight: 800;
 
     letter-spacing: 3px;
 
     box-shadow:
-        0 8px 25px rgba(0,0,0,0.50);
 
-    transition: 0.3s;
+        0 8px 25px rgba(0,0,0,0.55);
+
+    transition:
+
+        transform 0.3s ease,
+
+        background 0.3s ease;
 }
 
 .hero-collection span {
 
-    font-size: 27px;
+    font-size: 23px;
 
-    margin-top: 7px;
+    margin-top: 5px;
+
+    line-height: 1;
 }
 
 .hero-collection:hover {
 
     transform: translateY(-4px);
 
-    background: #d0a961;
+    background: #d3aa65;
 }
 
 
 /* =========================
-   SECCIONES
+   COLECCIÓN
 ========================= */
 
 section {
 
-    padding: 80px 25px;
-
     max-width: 1200px;
 
     margin: auto;
+
+    padding: 80px 25px;
 }
 
 .section-title {
 
     text-align: center;
 
-    font-size: 42px;
+    color: #c59a55;
+
+    font-family:
+
+        "Bodoni 72",
+
+        "Didot",
+
+        "Bodoni MT",
+
+        "Times New Roman",
+
+        serif;
+
+    font-size: 43px;
+
+    letter-spacing: 2px;
 
     margin-bottom: 50px;
-
-    color: #c89b52;
 }
 
 
@@ -276,7 +329,14 @@ section {
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(240px, 1fr));
+
+        repeat(
+
+            auto-fit,
+
+            minmax(240px, 1fr)
+
+        );
 
     gap: 30px;
 }
@@ -285,7 +345,7 @@ section {
 
     background: #111;
 
-    border: 1px solid #2d261d;
+    border: 1px solid #30281e;
 
     padding: 18px;
 
@@ -298,10 +358,12 @@ section {
 
     transform: translateY(-5px);
 
-    border-color: #c89b52;
+    border-color: #c59a55;
 }
 
 .product img {
+
+    display: block;
 
     width: 100%;
 
@@ -309,28 +371,38 @@ section {
 
     object-fit: cover;
 
-    display: block;
-
     margin-bottom: 18px;
 }
 
 .product h3 {
 
-    font-size: 23px;
+    font-family:
+
+        "Bodoni 72",
+
+        "Didot",
+
+        "Bodoni MT",
+
+        "Times New Roman",
+
+        serif;
+
+    font-size: 25px;
 
     margin-bottom: 8px;
 }
 
 .product p {
 
-    color: #cfc8bd;
+    color: #cfc7bb;
 
     margin-bottom: 8px;
 }
 
 .price {
 
-    color: #c89b52;
+    color: #c59a55;
 
     font-size: 22px;
 
@@ -345,13 +417,11 @@ section {
 
     background: #c49a54;
 
-    color: #080808;
+    color: #090909;
 
     text-decoration: none;
 
-    padding: 12px 20px;
-
-    font-family: Arial, Helvetica, sans-serif;
+    padding: 12px 22px;
 
     font-weight: bold;
 
@@ -367,20 +437,25 @@ section {
 
 .about {
 
-    text-align: center;
-
     max-width: 800px;
 
     margin: auto;
+
+    text-align: center;
 }
 
 .about p {
 
-    color: #d7d0c5;
+    color: #d6cec2;
 
     font-size: 19px;
 
     line-height: 1.8;
+}
+
+.about strong {
+
+    color: #c59a55;
 }
 
 
@@ -397,27 +472,37 @@ section {
 
 .faq-item {
 
-    border-bottom: 1px solid #3a3023;
-
     padding: 22px 0;
+
+    border-bottom: 1px solid #332b20;
 }
 
 .faq-item h3 {
 
-    color: #c89b52;
+    color: #c59a55;
 
-    font-size: 21px;
+    font-family:
+
+        "Bodoni 72",
+
+        "Didot",
+
+        "Bodoni MT",
+
+        "Times New Roman",
+
+        serif;
+
+    font-size: 22px;
 
     margin-bottom: 10px;
 }
 
 .faq-item p {
 
-    color: #d7d0c5;
+    color: #d2cbc1;
 
-    line-height: 1.6;
-
-    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
 }
 
 
@@ -431,55 +516,49 @@ footer {
 
     padding: 40px 20px;
 
-    border-top: 1px solid #2d261d;
+    border-top: 1px solid #30281e;
 
-    color: #8f887e;
+    color: #858078;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
 }
 
 
 /* =========================
-   ANDROID / CELULAR
+   ANDROID
 ========================= */
 
 @media (max-width: 600px) {
 
 
-    /* NAVEGACIÓN */
+    /* MENÚ */
 
     nav {
 
-        height: 65px;
+        height: 62px;
 
-        padding: 0 18px;
-
-        justify-content: flex-end;
+        padding: 0 17px;
     }
-
-
-    .nav-links {
-
-        justify-content: flex-end;
-    }
-
 
     .nav-links a {
 
-        font-size: 16px;
+        font-size: 15px;
 
-        margin-left: 22px;
+        margin-left: 20px;
+
+        letter-spacing: 0.5px;
     }
 
 
-    /* PORTADA */
+    /* HERO */
 
     .hero {
 
-        min-height: calc(100vh - 65px);
+        min-height: calc(100vh - 62px);
 
         /*
-           Ajuste especial para celular
+           Ajuste para celulares:
+           mantiene al lobo visible
         */
 
         background-position: center center;
@@ -488,25 +567,35 @@ footer {
 
     .hero-content {
 
-        padding: 15px;
+        min-height: calc(100vh - 62px);
 
-        transform: translateY(-35px);
+        padding:
+
+            30px
+
+            15px
+
+            28px;
     }
 
 
-    /* TEXTO DE MARCA */
+    /* MARCA */
 
     .hero h1 {
 
-        font-size: clamp(48px, 13vw, 72px);
+        font-size: clamp(
 
-        letter-spacing: 1px;
+            43px,
 
-        line-height: 1;
+            13vw,
 
-        margin-bottom: 38px;
+            70px
 
-        white-space: nowrap;
+        );
+
+        letter-spacing: 4px;
+
+        line-height: 0.9;
     }
 
 
@@ -514,19 +603,20 @@ footer {
 
     .hero-collection {
 
-        width: 220px;
+        width: 215px;
 
-        min-height: 90px;
+        min-height: 75px;
 
-        font-size: 15px;
+        font-size: 14px;
 
-        letter-spacing: 2.5px;
+        letter-spacing: 2px;
     }
-
 
     .hero-collection span {
 
-        font-size: 24px;
+        font-size: 21px;
+
+        margin-top: 4px;
     }
 
 
@@ -537,10 +627,11 @@ footer {
         padding: 60px 18px;
     }
 
-
     .section-title {
 
-        font-size: 34px;
+        font-size: 35px;
+
+        margin-bottom: 38px;
     }
 
 
@@ -553,7 +644,6 @@ footer {
         gap: 25px;
     }
 
-
     .product img {
 
         height: 280px;
@@ -563,34 +653,38 @@ footer {
 
 
 /* =========================
-   CELULARES MUY PEQUEÑOS
+   CELULARES PEQUEÑOS
 ========================= */
 
 @media (max-width: 380px) {
 
     .nav-links a {
 
-        font-size: 15px;
+        font-size: 14px;
 
-        margin-left: 17px;
+        margin-left: 16px;
     }
 
+    .hero-content {
+
+        padding-top: 25px;
+
+        padding-bottom: 22px;
+    }
 
     .hero h1 {
 
-        font-size: 43px;
+        font-size: 40px;
 
-        margin-bottom: 35px;
+        letter-spacing: 3px;
     }
-
 
     .hero-collection {
 
-        width: 205px;
+        width: 200px;
 
-        min-height: 85px;
+        min-height: 70px;
     }
-
 }
 
 </style>
@@ -602,7 +696,7 @@ footer {
 
 
 <!-- =========================
-     MENÚ SUPERIOR
+     MENÚ
 ========================= -->
 
 <nav>
@@ -624,31 +718,43 @@ footer {
 
 
 <!-- =========================
-     PORTADA PRINCIPAL
+     PORTADA
 ========================= -->
 
 <header class="hero">
 
     <div class="hero-overlay"></div>
 
+
     <div class="hero-content">
+
+
+        <!-- NOMBRE ARRIBA DEL LOBO -->
 
         <h1>
             100% MEXA
         </h1>
 
-        <a
-            class="hero-collection"
-            href="#gorras"
-        >
 
-            VER COLECCIÓN
+        <!-- BOTÓN ABAJO DEL LOBO -->
 
-            <span>
-                ↓
-            </span>
+        <div class="hero-bottom">
 
-        </a>
+            <a
+                class="hero-collection"
+                href="#gorras"
+            >
+
+                VER COLECCIÓN
+
+                <span>
+                    ↓
+                </span>
+
+            </a>
+
+        </div>
+
 
     </div>
 
@@ -670,7 +776,7 @@ footer {
     <div class="products">
 
 
-        <!-- FOX -->
+        <!-- 1 -->
 
         <div class="product">
 
@@ -679,13 +785,9 @@ footer {
                 alt="Gorra Fox Rosa"
             >
 
-            <h3>
-                Fox
-            </h3>
+            <h3>Fox</h3>
 
-            <p>
-                Rosa
-            </p>
+            <p>Rosa</p>
 
             <div class="price">
                 $380 MXN
@@ -698,8 +800,7 @@ footer {
         </div>
 
 
-
-        <!-- URBANO AZUL -->
+        <!-- 2 -->
 
         <div class="product">
 
@@ -708,13 +809,9 @@ footer {
                 alt="Gorra Urbano Azul Marino"
             >
 
-            <h3>
-                Urbano
-            </h3>
+            <h3>Urbano</h3>
 
-            <p>
-                Azul marino
-            </p>
+            <p>Azul marino</p>
 
             <div class="price">
                 $580 MXN
@@ -727,8 +824,7 @@ footer {
         </div>
 
 
-
-        <!-- DODGERS -->
+        <!-- 3 -->
 
         <div class="product">
 
@@ -737,13 +833,9 @@ footer {
                 alt="Gorra Dodgers Blanca"
             >
 
-            <h3>
-                Dodgers
-            </h3>
+            <h3>Dodgers</h3>
 
-            <p>
-                Blanco
-            </p>
+            <p>Blanco</p>
 
             <div class="price">
                 $580 MXN
@@ -756,8 +848,7 @@ footer {
         </div>
 
 
-
-        <!-- WHITE SOX -->
+        <!-- 4 -->
 
         <div class="product">
 
@@ -766,13 +857,9 @@ footer {
                 alt="Gorra White Sox Amarilla"
             >
 
-            <h3>
-                White Sox
-            </h3>
+            <h3>White Sox</h3>
 
-            <p>
-                Amarilla mostaza
-            </p>
+            <p>Amarilla mostaza</p>
 
             <div class="price">
                 $550 MXN
@@ -785,8 +872,7 @@ footer {
         </div>
 
 
-
-        <!-- HUGO BOSS -->
+        <!-- 5 -->
 
         <div class="product">
 
@@ -795,13 +881,9 @@ footer {
                 alt="Gorra Hugo Boss Café"
             >
 
-            <h3>
-                Hugo Boss
-            </h3>
+            <h3>Hugo Boss</h3>
 
-            <p>
-                Café
-            </p>
+            <p>Café</p>
 
             <div class="price">
                 $380 MXN
@@ -814,8 +896,7 @@ footer {
         </div>
 
 
-
-        <!-- SUPREME -->
+        <!-- 6 -->
 
         <div class="product">
 
@@ -824,13 +905,9 @@ footer {
                 alt="Gorra Supreme Roja"
             >
 
-            <h3>
-                Supreme
-            </h3>
+            <h3>Supreme</h3>
 
-            <p>
-                Roja
-            </p>
+            <p>Roja</p>
 
             <div class="price">
                 $380 MXN
@@ -843,8 +920,7 @@ footer {
         </div>
 
 
-
-        <!-- JORDAN BEIGE -->
+        <!-- 7 -->
 
         <div class="product">
 
@@ -853,13 +929,9 @@ footer {
                 alt="Gorra Jordan Beige"
             >
 
-            <h3>
-                Jordan
-            </h3>
+            <h3>Jordan</h3>
 
-            <p>
-                Beige / Arena
-            </p>
+            <p>Beige / Arena</p>
 
             <div class="price">
                 $300 MXN
@@ -872,8 +944,7 @@ footer {
         </div>
 
 
-
-        <!-- URBANO CREMA -->
+        <!-- 8 -->
 
         <div class="product">
 
@@ -882,13 +953,9 @@ footer {
                 alt="Gorra Urbano Crema"
             >
 
-            <h3>
-                Urbano
-            </h3>
+            <h3>Urbano</h3>
 
-            <p>
-                Crema
-            </p>
+            <p>Crema</p>
 
             <div class="price">
                 $580 MXN
@@ -901,8 +968,7 @@ footer {
         </div>
 
 
-
-        <!-- LAKERS -->
+        <!-- 9 -->
 
         <div class="product">
 
@@ -911,13 +977,9 @@ footer {
                 alt="Gorra Lakers Lila"
             >
 
-            <h3>
-                Lakers
-            </h3>
+            <h3>Lakers</h3>
 
-            <p>
-                Lila
-            </p>
+            <p>Lila</p>
 
             <div class="price">
                 $380 MXN
@@ -930,8 +992,7 @@ footer {
         </div>
 
 
-
-        <!-- AIR JORDAN -->
+        <!-- 10 -->
 
         <div class="product">
 
@@ -940,13 +1001,9 @@ footer {
                 alt="Gorra Air Jordan Crema"
             >
 
-            <h3>
-                Air Jordan
-            </h3>
+            <h3>Air Jordan</h3>
 
-            <p>
-                Crema con rojo vino
-            </p>
+            <p>Crema con rojo vino</p>
 
             <div class="price">
                 $400 MXN
@@ -959,8 +1016,7 @@ footer {
         </div>
 
 
-
-        <!-- YANKEES -->
+        <!-- 11 -->
 
         <div class="product">
 
@@ -969,13 +1025,9 @@ footer {
                 alt="Gorra Yankees Rosa"
             >
 
-            <h3>
-                Yankees
-            </h3>
+            <h3>Yankees</h3>
 
-            <p>
-                Rosa claro
-            </p>
+            <p>Rosa claro</p>
 
             <div class="price">
                 $320 MXN
@@ -988,8 +1040,7 @@ footer {
         </div>
 
 
-
-        <!-- LA -->
+        <!-- 12 -->
 
         <div class="product">
 
@@ -998,13 +1049,9 @@ footer {
                 alt="Gorra LA Rosa"
             >
 
-            <h3>
-                LA
-            </h3>
+            <h3>LA</h3>
 
-            <p>
-                Rosa claro / Beige
-            </p>
+            <p>Rosa claro / Beige</p>
 
             <div class="price">
                 $380 MXN
@@ -1072,6 +1119,7 @@ footer {
         Preguntas frecuentes
     </h2>
 
+
     <div class="faq">
 
 
@@ -1089,7 +1137,6 @@ footer {
         </div>
 
 
-
         <div class="faq-item">
 
             <h3>
@@ -1105,7 +1152,6 @@ footer {
         </div>
 
 
-
         <div class="faq-item">
 
             <h3>
@@ -1118,7 +1164,6 @@ footer {
             </p>
 
         </div>
-
 
 
         <div class="faq-item">
@@ -1143,7 +1188,7 @@ footer {
 
 
 <!-- =========================
-     PIE DE PÁGINA
+     FOOTER
 ========================= -->
 
 <footer>
@@ -1154,5 +1199,4 @@ footer {
 
 
 </body>
-
 </html>
