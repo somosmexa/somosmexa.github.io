@@ -1,13 +1,993 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>100% MEXA</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>100% MEXA | Orgullo que se porta</title>
+
+<style>
+:root {
+  --negro: #080808;
+  --negro2: #111111;
+  --crema: #eee4d2;
+  --dorado: #c9a56a;
+  --dorado-claro: #e1c38e;
+  --gris: #aaa39a;
+  --blanco: #f8f6f1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--negro);
+  color: var(--blanco);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- NAV ---------- */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8,8,8,.96);
+  border-bottom: 1px solid #30291f;
+  padding: 15px 5%;
+}
+
+.nav-inner {
+  max-width: 1250px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-wolf {
+  font-size: 42px;
+  filter: grayscale(1);
+}
+
+.logo-text {
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.logo-text small {
+  display: block;
+  color: var(--dorado);
+  font-size: 9px;
+  letter-spacing: 2px;
+  margin-top: 3px;
+}
+
+.menu {
+  display: flex;
+  gap: 25px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.menu a:hover {
+  color: var(--dorado-claro);
+}
+
+.nav-button {
+  border: 1px solid var(--dorado);
+  padding: 11px 18px;
+  border-radius: 30px;
+  color: var(--dorado-claro);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+  min-height: 620px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(circle at 75% 45%, #383126 0%, #14120f 28%, #080808 65%);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #080808 0%, rgba(8,8,8,.78) 35%, rgba(8,8,8,.2) 75%, #080808 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.hero-small {
+  color: var(--dorado-claro);
+  letter-spacing: 5px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.hero h1 {
+  font-size: clamp(55px, 9vw, 110px);
+  line-height: .9;
+  letter-spacing: 5px;
+  max-width: 700px;
+}
+
+.hero h1 span {
+  color: var(--dorado-claro);
+}
+
+.hero-slogan {
+  font-size: 22px;
+  letter-spacing: 4px;
+  margin-top: 25px;
+  text-transform: uppercase;
+}
+
+.hero-description {
+  color: #bbb;
+  max-width: 470px;
+  line-height: 1.7;
+  margin-top: 18px;
+}
+
+.hero-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  border-radius: 30px;
+  background: var(--dorado);
+  color: #080808;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+.button-outline {
+  background: transparent;
+  color: var(--dorado-claro);
+  border: 1px solid var(--dorado);
+}
+
+/* Lobo decorativo */
+
+.wolf {
+  position: absolute;
+  z-index: 1;
+  right: 7%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: min(40vw, 430px);
+  opacity: .18;
+  filter: grayscale(1);
+}
+
+/* ---------- SECCIONES ---------- */
+
+.section {
+  padding: 90px 5%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title small {
+  color: var(--dorado);
+  letter-spacing: 4px;
+}
+
+.section-title h2 {
+  font-size: 40px;
+  margin-top: 10px;
+}
+
+.section-title p {
+  color: var(--gris);
+  margin-top: 10px;
+}
+
+/* ---------- PRODUCTOS ---------- */
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.product {
+  background: #101010;
+  border: 1px solid #322b22;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: .25s;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  border-color: var(--dorado);
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  background: #222;
+}
+
+.product-info {
+  padding: 20px;
+}
+
+.product-number {
+  color: var(--dorado);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.product h3 {
+  margin-top: 8px;
+  font-size: 19px;
+  letter-spacing: 1px;
+}
+
+.product-color {
+  color: #aaa;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.price {
+  color: var(--dorado-claro);
+  font-size: 22px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.buy {
+  display: block;
+  text-align: center;
+  border: 1px solid var(--dorado);
+  padding: 11px;
+  border-radius: 25px;
+  color: var(--dorado-claro);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.buy:hover {
+  background: var(--dorado);
+  color: #080808;
+}
+
+/* ---------- IDENTIDAD ---------- */
+
+.identity {
+  background: #0e0e0e;
+  border-top: 1px solid #2b251e;
+  border-bottom: 1px solid #2b251e;
+}
+
+.identity-content {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+}
+
+.wolf-big {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+.identity h2 {
+  font-size: 38px;
+  color: var(--dorado-claro);
+}
+
+.identity p {
+  color: #bbb;
+  line-height: 1.8;
+  margin-top: 20px;
+}
+
+/* ---------- BENEFICIOS ---------- */
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.benefit {
+  text-align: center;
+  padding: 30px 15px;
+  border: 1px solid #29231c;
+  border-radius: 10px;
+}
+
+.benefit-icon {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.benefit h3 {
+  color: var(--dorado-claro);
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.benefit p {
+  color: #999;
+  font-size: 13px;
+}
+
+/* ---------- FAQ ---------- */
+
+.faq {
+  max-width: 850px;
+  margin: auto;
+}
+
+details {
+  border-bottom: 1px solid #30291f;
+  padding: 20px 0;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--crema);
+}
+
+details p {
+  color: #aaa;
+  line-height: 1.6;
+  padding-top: 15px;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+  border-top: 1px solid #30291f;
+  padding: 55px 5%;
+  text-align: center;
+  background: #050505;
+}
+
+footer h2 {
+  font-size: 28px;
+  letter-spacing: 4px;
+}
+
+footer p {
+  color: #888;
+  margin-top: 10px;
+}
+
+.footer-slogan {
+  color: var(--dorado) !important;
+  letter-spacing: 2px;
+}
+
+/* ---------- CELULAR ---------- */
+
+@media (max-width: 950px) {
+
+  .menu {
+    display: none;
+  }
+
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .benefits {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero {
+    min-height: 580px;
+  }
+
+  .wolf {
+    right: -10%;
+    opacity: .12;
+  }
+}
+
+@media (max-width: 550px) {
+
+  nav {
+    padding: 12px 4%;
+  }
+
+  .logo-text {
+    font-size: 19px;
+  }
+
+  .logo-wolf {
+    font-size: 32px;
+  }
+
+  .nav-button {
+    padding: 9px 12px;
+    font-size: 10px;
+  }
+
+  .hero {
+    min-height: 620px;
+  }
+
+  .hero h1 {
+    font-size: 58px;
+  }
+
+  .hero-slogan {
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+
+  .products {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .product-info {
+    padding: 13px;
+  }
+
+  .product h3 {
+    font-size: 15px;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+
+  .buy {
+    font-size: 10px;
+  }
+
+  .benefits {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .section {
+    padding: 60px 4%;
+  }
+}
+</style>
 </head>
 
 <body>
-  <h1>100% MEXA</h1>
-  <p>México se lleva puesto.</p>
+
+<!-- NAVEGACIÓN -->
+
+<nav>
+  <div class="nav-inner">
+
+    <a href="#inicio" class="logo">
+      <div class="logo-wolf">🐺</div>
+      <div class="logo-text">
+        100% MEXA
+        <small>GORRAS CON ACTITUD</small>
+      </div>
+    </a>
+
+    <div class="menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#coleccion">Colección</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#envios">Envíos</a>
+      <a href="#faq">FAQ</a>
+    </div>
+
+    <a class="nav-button"
+       href="https://www.facebook.com/share/18NAMDRcTR/"
+       target="_blank">
+       PEDIR POR MESSENGER
+    </a>
+
+  </div>
+</nav>
+
+
+<!-- PORTADA -->
+
+<section class="hero" id="inicio">
+
+  <div class="wolf">🐺</div>
+
+  <div class="hero-content">
+
+    <div class="hero-small">
+      MÁS QUE GORRAS
+    </div>
+
+    <h1>
+      100%<br>
+      <span>MEXA</span>
+    </h1>
+
+    <div class="hero-slogan">
+      Orgullo que se porta.
+    </div>
+
+    <p class="hero-description">
+      Gorras con actitud para quienes llevan su estilo,
+      su identidad y su orgullo a donde quiera que van.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#coleccion" class="button">
+        VER COLECCIÓN
+      </a>
+
+      <a href="#nosotros" class="button button-outline">
+        CONOCE MEXA
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- COLECCIÓN -->
+
+<section class="section" id="coleccion">
+
+  <div class="section-title">
+    <small>100% MEXA</small>
+    <h2>NUESTRA COLECCIÓN</h2>
+    <p>Elige la que represente tu estilo.</p>
+  </div>
+
+  <div class="products">
+
+
+    <!-- 01 -->
+
+    <article class="product">
+      <img class="product-image"
+           src="imagenes/20260916_162538.jpg"
+           alt="Gorra Fox rosa">
+
+      <div class="product-info">
+        <div class="product-number">MODELO 01</div>
+        <h3>FOX</h3>
+        <div class="product-color">Rosa</div>
+        <div class="price">$380 MXN</div>
+
+        <a class="buy"
+           href="https://www.facebook.com/share/18NAMDRcTR/"
+           target="_blank">
+           PEDIR
+        </a>
+      </div>
+    </article>
+
+
+    <!-- 02 -->
+
+    <article class="product">
+      <img class="product-image"
+           src="imagenes/20260916_162513.jpg"
+           alt="Gorra urbana azul marino">
+
+      <div class="product-info">
+        <div class="product-number">MODELO 02</div>
+        <h3>URBANO</h3>
+        <div class="product-color">Azul marino</div>
+        <div class="price">$580 MXN</div>
+
+        <a class="buy"
+           href="https://www.facebook.com/share/18NAMDRcTR/"
+           target="_blank">
+           PEDIR
+        </a>
+      </div>
+    </article>
+
+
+    <!-- 03 -->
+
+    <article class="product">
+      <img class="product-image"
+           src="imagenes/20260916_162039.jpg"
+           alt="Gorra Dodgers blanca">
+
+      <div class="product-info">
+        <div class="product-number">MODELO 03</div>
+        <h3>DODGERS</h3>
+        <div class="product-color">Blanco</div>
+        <div class="price">$580 MXN</div>
+
+        <a class="buy"
+           href="https://www.facebook.com/share/18NAMDRcTR/"
+           target="_blank">
+           PEDIR
+        </a>
+      </div>
+    </article>
+
+
+    <!-- 04 -->
+
+    <article class="product">
+      <img class="product-image"
+           src="imagenes/20260916_161930.jpg"
+           alt="Gorra White Sox amarilla mostaza">
+
+      <div class="product-info">
+        <div class="product-number">MODELO 04</div>
+        <h3>WHITE SOX</h3>
+        <div class="product-color">Amarilla mostaza</div>
+        <div class="price">$550 MXN</div>
+
+        <a class="buy"
+           href="https://www.facebook.com/share/18NAMDRcTR/"
+           target="_blank">
+           PEDIR
+        </a>
+      </div>
+    </article>
+
+
+    <!-- 05 -->
+
+    <article class="product">
+      <img class="product-image"
+           src="imagenes/20260916_155253.jpg"
+           alt="Gorra Hugo café">
+
+      <div class="product-info">
+        <div class="product-number">MODELO 05</div>
+        <h3>HUGO</h3>
+        <div class="product-color">Café</div>
+        <div class="price">$380 MXN</div>
+
+        <a class="buy"
+           href="https://www.facebook.com/share/18NAMDRcTR/"
+           target="_blank">
+           PEDIR
+        </a>
+      </div>
+    </article>
+
+
+    <!-- 06 -->
+
+    <article class="product">
+      <img class="product-image"
+           src="imagenes/20260916_154212.jpg"
+           alt="Gorra Supreme roja">
+
+      <div class="product-info">
+        <div class="product-number">MODELO 06</div>
+        <h3>SUPREME</h3>
+        <div class="product-color">Roja</div>
+        <div class="price">$380 MXN</div>
+
+        <a class="buy"
+           href="https://www.facebook.com/share/18NAMDRcTR/"
+           target="_blank">
+           PEDIR
+        </a>
+      </div>
+    </article>
+
+
+    <!-- 07 -->
+
+    <article class="product">
+      <img class="product-image"
+           src="imagenes/IMG-20260916-WA0118(1).jpg"
+           alt="Gorra Jordan beige">
+
+      <div class="product-info">
+        <div class="product-number">MODELO 07</div>
+        <h3>JORDAN</h3>
+        <div class="product-color">Beige / arena</div>
+        <div class="price">$300 MXN</div>
+
+        <a class="buy"
+           href="https://www.facebook.com/share/18NAMDRcTR/"
+           target="_blank">
+           PEDIR
+        </a>
+      </div>
+    </article>
+
+
+    <!-- 08 -->
+
+    <article class="product">
+      <img class="product-image"
+           src="imagenes/20260916_162155.jpg"
+           alt="Gorra urbana crema">
+
+      <div class="product-info">
+        <div class="product-number">MODELO 08</div>
+        <h3>URBANO</h3>
+        <div class="product-color">Crema</div>
+        <div class="price">$580 MXN</div>
+
+        <a class="buy"
+           href="https://www.facebook.com/share/18NAMDRcTR/"
+           target="_blank">
+           PEDIR
+        </a>
+      </div>
+    </article>
+
+
+    <!-- 09 -->
+
+    <article class="product">
+      <img class="product-image"
+           src="imagenes/20260916_162102.jpg"
+           alt="Gorra Lakers lila">
+
+      <div class="product-info">
+        <div class="product-number">MODELO 09</div>
+        <h3>LAKERS</h3>
+        <div class="product-color">Lila</div>
+        <div class="price">$380 MXN</div>
+
+        <a class="buy"
+           href="https://www.facebook.com/share/18NAMDRcTR/"
+           target="_blank">
+           PEDIR
+        </a>
+      </div>
+    </article>
+
+
+    <!-- 10 -->
+
+    <article class="product">
+      <img class="product-image"
+           src="imagenes/20260916_162239.jpg"
+           alt="Gorra Air Jordan crema con rojo vino">
+
+      <div class="product-info">
+        <div class="product-number">MODELO 10</div>
+        <h3>AIR JORDAN</h3>
+        <div class="product-color">Crema con rojo vino</div>
+        <div class="price">$400 MXN</div>
+
+        <a class="buy"
+           href="https://www.facebook.com/share/18NAMDRcTR/"
+           target="_blank">
+           PEDIR
+        </a>
+      </div>
+    </article>
+
+
+    <!-- 11 -->
+
+    <article class="product">
+      <img class="product-image"
+           src="imagenes/IMG-20260916-WA0124.jpg"
+           alt="Gorra Yankees rosa claro">
+
+      <div class="product-info">
+        <div class="product-number">MODELO 11</div>
+        <h3>YANKEES</h3>
+        <div class="product-color">Rosa claro</div>
+        <div class="price">$320 MXN</div>
+
+        <a class="buy"
+           href="https://www.facebook.com/share/18NAMDRcTR/"
+           target="_blank">
+           PEDIR
+        </a>
+      </div>
+    </article>
+
+
+    <!-- 12 -->
+
+    <article class="product">
+      <img class="product-image"
+           src="imagenes/20260916_154644.jpg"
+           alt="Gorra LA rosa claro">
+
+      <div class="product-info">
+        <div class="product-number">MODELO 12</div>
+        <h3>LA</h3>
+        <div class="product-color">Rosa claro</div>
+        <div class="price">$380 MXN</div>
+
+        <a class="buy"
+           href="https://www.facebook.com/share/18NAMDRcTR/"
+           target="_blank">
+           PEDIR
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+<!-- IDENTIDAD -->
+
+<section class="identity" id="nosotros">
+
+  <div class="section">
+
+    <div class="identity-content">
+
+      <div class="wolf-big">🐺</div>
+
+      <h2>ORGULLO QUE SE PORTA.</h2>
+
+      <p>
+        100% MEXA nace para quienes no tienen miedo de mostrar
+        quiénes son. Cada gorra representa actitud, personalidad
+        y ese orgullo que llevamos puesto todos los días.
+      </p>
+
+      <p>
+        El lobo representa nuestra esencia:
+        fuerza, identidad y libertad.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- BENEFICIOS -->
+
+<section class="section" id="envios">
+
+  <div class="section-title">
+    <small>100% MEXA</small>
+    <h2>COMPRA CON CONFIANZA</h2>
+  </div>
+
+  <div class="benefits">
+
+    <div class="benefit">
+      <div class="benefit-icon">🚚</div>
+      <h3>ENVÍOS</h3>
+      <p>Enviamos tu gorra hasta tu puerta.</p>
+    </div>
+
+    <div class="benefit">
+      <div class="benefit-icon">🧢</div>
+      <h3>CALIDAD</h3>
+      <p>Seleccionamos cada pieza con cuidado.</p>
+    </div>
+
+    <div class="benefit">
+      <div class="benefit-icon">🐺</div>
+      <h3>ACTITUD</h3>
+      <p>Diseños para destacar donde vayas.</p>
+    </div>
+
+    <div class="benefit">
+      <div class="benefit-icon">⭐</div>
+      <h3>ATENCIÓN</h3>
+      <p>Estamos para ayudarte a elegir.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section class="section" id="faq">
+
+  <div class="section-title">
+    <small>¿TIENES DUDAS?</small>
+    <h2>PREGUNTAS FRECUENTES</h2>
+  </div>
+
+  <div class="faq">
+
+    <details>
+      <summary>¿Cómo puedo comprar una gorra?</summary>
+      <p>
+        Elige tu modelo y toca el botón PEDIR para contactarnos
+        por Facebook/Messenger.
+      </p>
+    </details>
+
+    <details>
+      <summary>¿Hacen envíos?</summary>
+      <p>
+        Sí. Consulta con nosotros la disponibilidad de envío,
+        costo y tiempo de entrega.
+      </p>
+    </details>
+
+    <details>
+      <summary>¿Qué métodos de pago manejan?</summary>
+      <p>
+        Escríbenos por Messenger para conocer los métodos de pago
+        disponibles.
+      </p>
+    </details>
+
+    <details>
+      <summary>¿Puedo preguntar por otros modelos?</summary>
+      <p>
+        Claro. Si buscas algún color o diseño específico,
+        escríbenos y te ayudamos.
+      </p>
+    </details>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <h2>100% MEXA</h2>
+
+  <p class="footer-slogan">
+    ORGULLO QUE SE PORTA.
+  </p>
+
+  <p>
+    © 2026 100% MEXA · Gorras con actitud
+  </p>
+
+</footer>
+
 </body>
 </html>
